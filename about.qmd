@@ -2,8 +2,14 @@
 title: "About"
 ---
 
-About this site
+## About Me
 
-```{r}
-1 + 1
-```
+Hi! My name is Melissa Ban, I am from Ontario, Canada, with a Chinese-Mongolian background. I am heading into my second year of Bachalor of Health Sciences degree at Queen's University. I am passionate in health care related research, particularly in dentistry.
+
+Email: m.ban\@queensu.ca
+
+## About this Project
+
+(copy the part about interest or the entire introduction)
+
+This project was created as a part of [Kane's Data Science Bootcamp](https://bootcamp.davidkane.info/)

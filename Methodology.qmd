@@ -1,0 +1,13 @@
+---
+title: "Methodology"
+author: "Melissa Ban"
+editor: visual
+---
+
+1.  Get raw data from NCBI, download spreadsheet by clicking the link in supplementary information ([Yin et at., 2019](https://www.ncbi9.nlm.nih.gov/pmc/articles/PMC6545229/#supplemental-information))
+2.  Use the column of age, spherical diopter (SPH) and cylinder diopter (CYL) in the spreadsheet to generate a new raw data table.
+3.  Process the data to calculate the initial, final and change in SE (D) and the percent and average percent improvement of SE (%) for each age group, respectively.
+4.  Plot a graph based on the average percent improvement of SE (%) of each age group.
+5.  Generate a null hypothesis and an alternative hypothesis for justification, then use statistical analysis (in this case, to calculate Pearson's correlation coefficient) to find whether there is a correlation between IV (patients' initial treatment age) and DV (percent improvement of SE (%)), and use critical value table to state whether the relationship is statistically significant.
+6.  Draw conclusions based on processed data and statistical analysis.
+7.  Strengths are identified, limitations and related improvements are provided.

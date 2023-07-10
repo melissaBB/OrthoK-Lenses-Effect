@@ -1,0 +1,67 @@
+---
+title: "Models"
+author: "Melissa Ban"
+---
+```{r}
+#| echo: false
+#| message: false
+library(tidyverse)
+library(usethis)
+library(primer.data)
+library(rstanarm)
+```
+
+## Model: predictive model
+
+reason: 1 outcome
+
+```{r}
+raw_data <- readxl::read_excel("/Users/melissashedgehog/Desktop/Projects/OrthoK Lenses Effect/Raw data.xlsx")
+
+x <- raw_data |>
+    summarise(Age,
+            SE_i = SPH_i + 1/2 CYL_i,
+            SE_f = SPH_f + 1/2 CYL_f,
+            SE_d = SE_f - SE_i,
+            SE_improve = (SE_d/SE_i)*100%)
+
+fit_obj <- stan_glm(data = x,
+                    formula = No. ~ Age, 
+                    family = gaussian, 
+                    refresh = 0)
+
+fit_obj
+```
+
+```{r}
+summary_data <- readxl::read_excel("/Users/melissashedgehog/Desktop/Projects/OrthoK Lenses Effect/Summary.xlsx")
+
+summary_data |>
+  ggplot(data, 
+         aes(x = Age, 
+             y = Average SE_improve,
+             color = pink)) +
+  geom_point() +
+  geom_smooth(method = "lm", formula = 'y ~ x', se = TRUE) +
+  scale_x_log10(labels = scales::comma_format()) +
+  labs(title = "Relationship between patients’ initial treatment ages and the average percent improvement of SE (%).",
+       subtitle = "For age groups of 8, 9, 10, 11, 12, 13, and 14",
+       x = "Patients' Initial Treatment Ages",
+       y = "Average Percent Improvement of Spherical Equivalence (%)")
+```
+
+## Pearson
+
+When considering the relationship between the two factors, Pearson’s correlation coefficient and Spearman's ranking order correlation coefficient are the most common tools. Pearson’s test is best used when there are no outliers in the data (Kent State University, 2021), whereas Spearman’s test is most accurately used when the data has significant outliers. According to Table 5, there are no outliers in this set of data. Therefore, Pearson’s test is chosen.
+
+```{r}
+correlation <- cor.test(summary_data$Age, summary_data$`Average SE_improve`, method = "pearson")
+
+correlation
+```
+
+If the coefficient > 0, then there is a positive correlation. Which is, by increasing one value, the other value also increases. If the coefficient < 0, then there is a negative correlation, meaning by increasing one value, the additional value decreases. 
+
+Here, the r-value is 0.6380002, which is greater than 0. Since this value is between 0.5 and 0.87, it is considered a moderate positive correlation. A table of values (see Figure 3 in the appendix) is attached in the appendix that instructs the degree of correlation (e.g.: weak, moderate, strong, perfect).
+
+Although it is suggested that there is a moderate positive correlation between two variables, to examine its statistical significance, that is, whether the relationship with this sample exists in the population (University of Connecticut, 2009). A critical values table (see Figure 4 in the appendix) is used to examine the data’s statistical significance. Before doing so, a significance level (α) is chosen to be 0.05, meaning at least 95% times the relationship exhibited in this sample also exists in the populations (University of Connecticut, 2009). The degrees of freedom (df) is 5, and using the information in Figure 4, the critical value is: 0.755. If the r-value is bigger than 0.755, the null hypothesis is rejected, and the relationship is statistically significant. However, in this scenario the 𝑟 = 0.6380002 < 0. 755, the null hypothesis is therefore accepted, and it suggests that the relationship is not statistically significant.

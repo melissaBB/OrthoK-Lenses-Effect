@@ -2,10 +2,18 @@
 title: "OrthoK Lenses Effect"
 ---
 
-This is a Quarto website.
+## Research Topic
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+An Investigation into the Correlation Between Myopia Patients' **Initial Treatment Ages** and the **Percent Improvement in Spherical Equivalence (%)** after 1 Year of Wearing Orthokeratology Lenses, as Calculated by Spherical Power (diopter, D) and Cylinder Power (D).
 
-```{r}
-1 + 1
-```
+## Summary
+
+In recent years, myopia has become a more and more common problem among children. Studies have shown that the increased screen time and the reduced outdoor time can increase the chance of children getting myopia. Especially under the current COVID-19 pandemic, approximately 80% of the global student populations are affected by various lockdown measures, leading to significantly increased use of digital devices, which will result in long-term eye problems, being myopia (Wong et al., 2020). It is also predicted that, by 2050, around 5 billion people will have myopia (Dolgin, 2015).
+
+Myopia is more commonly known as nearsightedness, which occurs when the cornea is too curved that causes the refraction of light. The image is then formed in front of the retina, instead of on the retina itself. Patients with myopia can often see nearby objects clearly but experience blurred farsighted vision (Yu et al., 2011). Moreover, myopia is most commonly treated using corrective concave lenses, the power (diopter, D) of lenses is prescribed based on the eye's spherical (SPH) power (diopter, D) and cylinder (CYL) power (D), which can be measured using manifest refraction test (see figure 1 in the appendix). SPH is the power of a lens, while CYL is the power of astigmatism, which is the imperfection in the curvature of the eye that blurs out the vision (Mayo Clinic, 2019). SPH and CYL are considered direct measurements of one's vision (Heiting, 2020). Another value, spherical equivalent (SE), as measured in diopters (D), is a comprehensive measurement of SPH and CYL, that is used to prescribe contact lenses to an individual with low astigmatism. Because SE is calculated based on SPH and CYL, the spherical equivalent is also considered a way to evaluate an individual's vision (EyeQue Support, 2021). SPH, CYL, and SE values are often present as negative values which represent myopia. The higher their absolute value is, the worse the patients' vision is.
+
+Raw data used in this investigation is publicly available on NCBI ([Yin et al., 2019](https://www.ncbi9.nlm.nih.gov/pmc/articles/PMC6545229/#supplemental-information)). Using the column of **age**, spherical diopter (**SPH**) and cylinder diopter (**CYL**), a new raw data table is generated. The initial, final and change in SE (D) and the percent and average percent improvement of **SE (%)** for each age group are calculated, respectively.
+
+Using visual examination and Pearson's correlation coefficient test, there is a moderate positive correlation between **patients' initial treatment age** and **SE's average percent improvement(%)**. However, since r-value is less than the critical value, meaning that such relationship is not statistically significant.
+
+\[only one key plot here\]
