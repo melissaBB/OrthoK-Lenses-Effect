@@ -7,8 +7,18 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
-
+      - href: Introduction.qmd
+        text: Introduction
+      - href: Methodology.qmd
+        text: Methodology
+      - href: Model.qmd
+        text: Model
+      - href: References.qmd
+        text: References       
+      - href: Special.qmd
+        text: Special note
+      - href: about.qmd
+        text: About
 format:
   html:
     theme: cosmo

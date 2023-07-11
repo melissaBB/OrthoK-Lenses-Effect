@@ -4,12 +4,15 @@ title: "About"
 
 ## About Me
 
-Hi! My name is Melissa Ban, I am from Ontario, Canada, with a Chinese-Mongolian background. I am heading into my second year of Bachalor of Health Sciences degree at Queen's University. I am passionate in health care related research, particularly in dentistry.
+Hi! My name is Melissa Ban, I am heading into my second year of Bachelor of Health Sciences degree at Queen's University. I am passionate in health care related research, particularly in the field of dentistry.
 
-Email: m.ban\@queensu.ca
+## Contact
+m.ban\@queensu.ca
 
 ## About this Project
 
-(copy the part about interest or the entire introduction)
+I started wearing OrthoK lenses since grade 5, and continued wearing it until today. OrthoK lenses has had its up-and-downs in the industry, with some researchers criticizing its permanent harm to the cornea, while others look at its ability to slow down the accelerating eye power increase. Now this is almost my 10th year wearing OrthoK lenses, and I want to know if there's a correlation between the age of a patient when they first received the treatment and their outcome in a year. 
 
-This project was created as a part of [Kane's Data Science Bootcamp](https://bootcamp.davidkane.info/)
+## Appreciation
+This project was created as a part of [Kane's Data Science Bootcamp](https://bootcamp.davidkane.info/). 
+& a special shoutout to Yuhan for helping me tones with this project.

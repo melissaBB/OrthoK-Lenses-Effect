@@ -8,12 +8,38 @@ An Investigation into the Correlation Between Myopia Patients' **Initial Treatme
 
 ## Summary
 
-In recent years, myopia has become a more and more common problem among children. It is also predicted that, by 2050, around 5 billion people will have myopia (Dolgin, 2015).
-
-Raw data used in this investigation is publicly available on NCBI ([Yin et al., 2019](https://www.ncbi9.nlm.nih.gov/pmc/articles/PMC6545229/#supplemental-information)). Using the column of **age**, spherical diopter (**SPH**) and cylinder diopter (**CYL**), a new raw data table is generated. The initial, final and change in SE (D) and the percent and average percent improvement of **SE (%)** for each age group are calculated, respectively.
+In recent years, with myopia becoming a more and more common problem among children, many families choose OrthoK lenses treatment instead of traditional glasses.
 
 In simple terms, SPH is the power of a lens, while CYL is the power of astigmatism (Mayo Clinic, 2019), they are considered direct measurements of one's vision (Heiting, 2020). Another value, spherical equivalent (SE), as measured in diopters (D), is a comprehensive measurement of SPH and CYL, that is used to prescribe contact lenses to an individual with low astigmatism.
 
-Using visual examination and Pearson's correlation coefficient test, there is a moderate positive correlation between **patients' initial treatment age** and **SE's average percent improvement(%)**. However, since r-value is less than the critical value, meaning that such relationship is not statistically significant.
+Raw data used in this investigation is publicly available on NCBI ([Yin et al., 2019](https://www.ncbi9.nlm.nih.gov/pmc/articles/PMC6545229/#supplemental-information)). Using the column of **age**, spherical diopter (**SPH**) and cylinder diopter (**CYL**), a new raw data table is generated. The initial, final and change in SE (D) and the percent and average percent improvement of **SE (%)** for each age group are calculated, respectively.
 
-\[only one key plot here\]
+Using visual examination and Pearson's correlation coefficient test, there is a weak positive correlation between **patients' initial treatment age** and **SE's average percent improvement(%)**. 
+
+```{r}
+#| echo: false
+#| message: false
+
+library(tidyverse)
+library(usethis)
+library(primer.data)
+library(rstanarm)
+
+raw_data <- readxl::read_excel("/Users/melissashedgehog/Desktop/Projects/OrthoK Lenses Effect/Raw data.xlsx")
+
+x <- raw_data |>
+    mutate(SE_i = SPH_i + 1/2 *CYL_i,
+            SE_f = SPH_f + 1/2 *CYL_f,
+            SE_d = SE_f - SE_i,
+            SE_improve = (SE_d/SE_i))
+
+ggplot(x, aes(x = Age, y = SE_d)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(title = "Relationship between patients’ initial treatment ages and \n the average percent improvement of SE (%).",
+       subtitle = "For age groups of 8, 9, 10, 11, 12, 13, and 14",
+       x = "Patients' Initial Treatment Ages",
+       y = "Average Percent Improvement of Spherical Equivalence (%)") +
+  theme_minimal()
+```
+

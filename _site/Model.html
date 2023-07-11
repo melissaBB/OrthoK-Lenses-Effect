@@ -8,7 +8,7 @@
 
 <meta name="author" content="Melissa Ban">
 
-<title>OrthoK Lenses Effect - Introduction</title>
+<title>OrthoK Lenses Effect - Models</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -60,6 +60,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -85,7 +86,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./Introduction.html" aria-current="page">
+    <a class="nav-link" href="./Introduction.html">
  <span class="menu-text">Introduction</span></a>
   </li>  
   <li class="nav-item">
@@ -93,7 +94,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Methodology</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./Model.html">
+    <a class="nav-link active" href="./Model.html" aria-current="page">
  <span class="menu-text">Model</span></a>
   </li>  
   <li class="nav-item">
@@ -119,14 +120,24 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#hypothesis" id="toc-hypothesis" class="nav-link active" data-scroll-target="#hypothesis">Hypothesis</a></li>
+  <li><a href="#processed-data-table" id="toc-processed-data-table" class="nav-link" data-scroll-target="#processed-data-table">Processed data table</a></li>
+  <li><a href="#correlation-model" id="toc-correlation-model" class="nav-link" data-scroll-target="#correlation-model">Correlation Model</a></li>
+  <li><a href="#pearson" id="toc-pearson" class="nav-link" data-scroll-target="#pearson">Pearson</a></li>
+  <li><a href="#pearson-1" id="toc-pearson-1" class="nav-link" data-scroll-target="#pearson-1">Pearson</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Introduction</h1>
+<h1 class="title">Models</h1>
 </div>
 
 
@@ -147,15 +158,123 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>In recent years, myopia has become a more and more common problem among children. Studies have shown that the increased screen time and the reduced outdoor time can increase the chance of children getting myopia. Especially under the current COVID-19 pandemic, approximately 80% of the global student populations are affected by various lockdown measures, leading to significantly increased use of digital devices, which will result in long-term eye problems, being myopia (Wong et al., 2020). It is also predicted that, by 2050, around 5 billion people will have myopia (Dolgin, 2015).</p>
-<p>Myopia is more commonly known as nearsightedness, which occurs when the cornea is too curved that causes the refraction of light. The image is then formed in front of the retina, instead of on the retina itself. Patients with myopia can often see nearby objects clearly but experience blurred farsighted vision (Yu et al., 2011). Moreover, myopia is most commonly treated using corrective concave lenses, the power (diopter, D) of lenses is prescribed based on the eye's spherical (SPH) power (diopter, D) and cylinder (CYL) power (D), which can be measured using manifest refraction test (see figure 1 in the appendix). SPH is the power of a lens, while CYL is the power of astigmatism, which is the imperfection in the curvature of the eye that blurs out the vision (Mayo Clinic, 2019). SPH and CYL are considered direct measurements of one's vision (Heiting, 2020). Another value, spherical equivalent (SE), as measured in diopters (D), is a comprehensive measurement of SPH and CYL, that is used to prescribe contact lenses to an individual with low astigmatism. Because SE is calculated based on SPH and CYL, the spherical equivalent is also considered a way to evaluate an individual's vision (EyeQue Support, 2021). SPH, CYL, and SE values are often present as negative values which represent myopia. The higher their absolute value is, the worse the patients' vision is.</p>
-<p>The trend of the growing myopia population raises concerns about effective myopia treatment. Now, the traditional way (glasses) is found less satisfactory to the individuals that have myopia as it is not as beautiful, and although it can treat the condition, it does not improve the condition (Wilson &amp; Keeney, 1990). Thus, modern ways of myopia treatments are developed, with laser surgery and orthokeratology lenses leading the industry. Because laser surgery is recommended to be taken after 18 years old, orthokeratology lenses then became the choice of more and more juvenile myopia patients (Kramer, 2018).</p>
-<p>Orthokeratology lenses, also referred to as OK lenses, can limit the development of myopia and allow patients to have clear vision during day time without the use of glasses or contact lenses. There are huge differences between traditional contact lenses and OK lenses, as the former is soft, not gas-permeable, and is worn throughout the day; while the latter is hard and gas permeable, and only needs to be worn at night while sleeping. More importantly, traditional lenses can not control the growth of myopia power, whereas OK lenses are suggested to be effective (Lipson, 2018). The principle of the use of the hard lens is to put pressure on the patient's cornea at night, remodelling the anterior part of the cornea into a shape where light is correctly refractured and the image can form exactly on the retina. This change in shape is temporary, as the human lens tends to reform its original shape over time. Thus, the patient will experience a change in vision between morning and evening, when their vision starts to blur out. Later at night, the OK lenses are worn again, flattening the anterior portion of the cornea, restoring the vision (Yoon &amp; Swarbrick, 2013).</p>
-<p>However, giving so many advantages of OK lenses, there are still concerns regarding overnight wearing risks, especially when it is more commonly used among young children (Cho et al., 2007). Parents are concerned about the right age for their kids to start wearing OK lenses. As children's cornea is more vulnerable than that of adults, questions regarding the treatment's harm to children's cornea have been raised (Ostrov, 2015).</p>
-<p>There are a relatively high number of studies exploring the use and safety hazards of OK lenses, but not a lot of studies focused on the factor of initial wearing age, which can also be a potential influencing factor of the treatment result. One study, by Dr.&nbsp;Jayakumar and Swarbrick (2004), touched on the effect of age on short-term orthokeratology. The study focused on comparing the effect of children, young adults, and older adults. The conclusion is that all groups reflect significant improvement in vision, while the group of older adults has less change in visual acuity, in comparison to children and young adults. Thus, it suggests that age does affect the result of using OK lenses. The hypothesis in this study has also been made based on the result from this previous one.</p>
-<p>In this investigation, the effect of OK lenses on children of different ages is studied using a set of data by Yin et al.&nbsp;(2019).</p>
+<div class="cell">
+
+</div>
+<section id="hypothesis" class="level2">
+<h2 class="anchored" data-anchor-id="hypothesis">Hypothesis</h2>
+<p>Null xxx</p>
+<p>Alternative xxx</p>
+</section>
+<section id="processed-data-table" class="level2">
+<h2 class="anchored" data-anchor-id="processed-data-table">Processed data table</h2>
+<p>Formula used: xxx</p>
+<p>Processed data table:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 7 × 2
+    Age SE_avg_imp
+  &lt;dbl&gt;      &lt;dbl&gt;
+1     8      0.827
+2     9      0.812
+3    10      0.896
+4    11      0.847
+5    12      0.889
+6    13      0.857
+7    14      0.887</code></pre>
+</div>
+</div>
+</section>
+<section id="correlation-model" class="level2">
+<h2 class="anchored" data-anchor-id="correlation-model">Correlation Model</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = x$SE_improve ~ x$Age)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.205855 -0.052370 -0.001803  0.026784  0.137895 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 0.793127   0.070447  11.259 1.15e-12 ***
+x$Age       0.006898   0.006404   1.077     0.29    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.07328 on 32 degrees of freedom
+Multiple R-squared:  0.03498,   Adjusted R-squared:  0.004827 
+F-statistic:  1.16 on 1 and 32 DF,  p-value: 0.2895</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: `as.tibble()` was deprecated in tibble 2.0.0.
+ℹ Please use `as_tibble()` instead.
+ℹ The signature and semantics have changed, see `?as_tibble`.</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="Model_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="Model_files/figure-html/unnamed-chunk-3-2.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Model: <span class="math display">\[y_i = \alpha*AGE + \beta*G\]</span></p>
+</section>
+<section id="pearson" class="level2">
+<h2 class="anchored" data-anchor-id="pearson">Pearson</h2>
+<p>When considering the relationship between the two factors, Pearson’s correlation coefficient and Spearman’s ranking order correlation coefficient are the most common tools. Pearson’s test is best used when there are no outliers in the data (Kent State University, 2021), whereas Spearman’s test is most accurately used when the data has significant outliers. According to Table 5, there are no outliers in this set of data. Therefore, Pearson’s test is chosen.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = x$SE_d ~ x$Age)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-2.7036 -0.7824 -0.2197  1.0224  1.9528 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)   
+(Intercept)  -0.6376     1.1878  -0.537  0.59513   
+x$Age         0.3436     0.1080   3.182  0.00325 **
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 1.236 on 32 degrees of freedom
+Multiple R-squared:  0.2403,    Adjusted R-squared:  0.2166 
+F-statistic: 10.12 on 1 and 32 DF,  p-value: 0.003249</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="Model_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="pearson-1" class="level2">
+<h2 class="anchored" data-anchor-id="pearson-1">Pearson</h2>
+<p>When considering the relationship between the two factors, Pearson’s correlation coefficient and Spearman’s ranking order correlation coefficient are the most common tools. Pearson’s test is best used when there are no outliers in the data (Kent State University, 2021), whereas Spearman’s test is most accurately used when the data has significant outliers. According to Table 5, there are no outliers in this set of data. Therefore, Pearson’s test is chosen.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's product-moment correlation
+
+data:  x$Age and x$SE_d
+t = 3.1817, df = 32, p-value = 0.003249
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ 0.1822791 0.7105921
+sample estimates:
+      cor 
+0.4902269 </code></pre>
+</div>
+</div>
+<p>If the coefficient &gt; 0, then there is a positive correlation. Which is, by increasing one value, the other value also increases. If the coefficient &lt; 0, then there is a negative correlation, meaning by increasing one value, the additional value decreases.</p>
+<p>Here, the r-value is 0.4902269, which is greater than 0. Since this value is between 0 and 0.5, it is considered a weak positive correlation.</p>
+<p>Although it is suggested that there is a weak positive correlation between two variables, we still nedd to examine its statistical significance, that is, whether the relationship with this sample exists in the population (University of Connecticut, 2009). A significance level (α) is chosen to be 0.05, meaning at least 95% times the relationship exhibited in this sample also exists in the populations (University of Connecticut, 2009). Since the p-value is 0.003249, which is smaller than 0.05, the relationship is statistically significant. Therefore, the alternative hypothesis is accepted.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

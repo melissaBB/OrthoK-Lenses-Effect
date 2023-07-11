@@ -11,43 +11,118 @@ library(primer.data)
 library(rstanarm)
 ```
 
-## Model: predictive model
+## Hypothesis 
 
-reason: 1 outcome
+Null xxx
+
+Alternative xxx
+
+## Processed data table
+
+Formula used:
+xxx
+
+Processed data table:
 
 ```{r}
+#| echo: false
+#| message: false
+raw_data <- readxl::read_excel("Raw data.xlsx") |>
+  mutate(gender = c("F", "F", "M", "M", "F", "F", 
+                    "F", "F", "F", "F", "F", "F", 
+                    "M", "M", "M", "M", "M", "F", 
+                    "F", "F", "M", "M", "F", "M", 
+                    "M", "M", "M", "M", "F", "F", 
+                    "F", "M", "F", "M")) 
+  
+x <- raw_data |>
+    mutate(SE_i = SPH_i + 1/2 *CYL_i,
+            SE_f = SPH_f + 1/2 *CYL_f,
+            SE_d = SE_f - SE_i,
+            SE_improve = abs(SE_d/SE_i)) |>
+  summarise(SE_avg_imp = abs(mean(SE_improve)), .by = Age)
+  
+x
+```
+
+## Correlation Model
+
+```{r}
+#| echo: false
+#| message: false
+
+raw_data <- readxl::read_excel("Raw data.xlsx") |>
+  mutate(gender = c("F", "F", "M", "M", "F", "F", 
+                    "F", "F", "F", "F", "F", "F", 
+                    "M", "M", "M", "M", "M", "F", 
+                    "F", "F", "M", "M", "F", "M", 
+                    "M", "M", "M", "M", "F", "F", 
+                    "F", "M", "F", "M")) 
+  
+x <- raw_data |>
+    mutate(SE_i = SPH_i + 1/2 *CYL_i,
+            SE_f = SPH_f + 1/2 *CYL_f,
+            SE_d = SE_f - SE_i,
+            SE_improve = abs(SE_d/SE_i)) 
+
+model <- lm(x$SE_improve~x$Age)
+
+summary(model)
+
+fitstan <- stan_glm(x, formula = SE_improve ~ gender, family = gaussian, refresh = 0, iter = 8000, seed = 100)
+
+
+newobs = tibble(gender = c("F", "M"))
+
+pp <- posterior_epred(fitstan, newdata = newobs) |>
+  as.tibble() |>
+  pivot_longer(`1`:`2`,
+               names_to = "gender",
+               values_to = "values") |>
+  mutate(gender = if_else(gender == "1", "Female", "Male"))
+
+pp |>
+  ggplot(aes(x = values, fill = gender)) + 
+  geom_histogram(aes(y = after_stat(count/sum(count))),
+                 position = "identity", alpha = 0.6, bins = 100) +
+  scale_y_continuous(labels = scales::percent_format(accuracy = 0.1))
+
+plot(x$Age, x$"SE_improve")
+
+```
+
+Model: 
+$$y_i = \alpha*AGE + \beta*G$$
+
+
+## Pearson
+
+When considering the relationship between the two factors, Pearson’s correlation coefficient and Spearman's ranking order correlation coefficient are the most common tools. Pearson’s test is best used when there are no outliers in the data (Kent State University, 2021), whereas Spearman’s test is most accurately used when the data has significant outliers. According to Table 5, there are no outliers in this set of data. Therefore, Pearson’s test is chosen.
+
+```{r}
+#| echo: false
+#| message: false
+
 raw_data <- readxl::read_excel("/Users/melissashedgehog/Desktop/Projects/OrthoK Lenses Effect/Raw data.xlsx")
 
 x <- raw_data |>
-    summarise(Age,
-            SE_i = SPH_i + 1/2 CYL_i,
-            SE_f = SPH_f + 1/2 CYL_f,
+    mutate(SE_i = SPH_i + 1/2 *CYL_i,
+            SE_f = SPH_f + 1/2 *CYL_f,
             SE_d = SE_f - SE_i,
-            SE_improve = (SE_d/SE_i)*100%)
+            SE_improve = (SE_d/SE_i))
 
-fit_obj <- stan_glm(data = x,
-                    formula = No. ~ Age, 
-                    family = gaussian, 
-                    refresh = 0)
+model <- lm(x$SE_d~x$Age)
 
-fit_obj
-```
+summary(model)
 
-```{r}
-summary_data <- readxl::read_excel("/Users/melissashedgehog/Desktop/Projects/OrthoK Lenses Effect/Summary.xlsx")
-
-summary_data |>
-  ggplot(data, 
-         aes(x = Age, 
-             y = Average SE_improve,
-             color = pink)) +
+ggplot(x, aes(x = Age, y = SE_d)) +
   geom_point() +
-  geom_smooth(method = "lm", formula = 'y ~ x', se = TRUE) +
-  scale_x_log10(labels = scales::comma_format()) +
-  labs(title = "Relationship between patients’ initial treatment ages and the average percent improvement of SE (%).",
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(title = "Relationship between patients’ initial treatment ages and \n the average percent improvement of SE (%).",
        subtitle = "For age groups of 8, 9, 10, 11, 12, 13, and 14",
        x = "Patients' Initial Treatment Ages",
-       y = "Average Percent Improvement of Spherical Equivalence (%)")
+       y = "Average Percent Improvement of Spherical Equivalence (%)") +
+  theme_minimal()
 ```
 
 ## Pearson
@@ -55,13 +130,16 @@ summary_data |>
 When considering the relationship between the two factors, Pearson’s correlation coefficient and Spearman's ranking order correlation coefficient are the most common tools. Pearson’s test is best used when there are no outliers in the data (Kent State University, 2021), whereas Spearman’s test is most accurately used when the data has significant outliers. According to Table 5, there are no outliers in this set of data. Therefore, Pearson’s test is chosen.
 
 ```{r}
-correlation <- cor.test(summary_data$Age, summary_data$`Average SE_improve`, method = "pearson")
+#| echo: false
+#| message: false
 
-correlation
+correlation <- cor.test(x$Age, x$`SE_improve`, method = "pearson")
+
+cor.test(x$Age, x$SE_d)
 ```
 
 If the coefficient > 0, then there is a positive correlation. Which is, by increasing one value, the other value also increases. If the coefficient < 0, then there is a negative correlation, meaning by increasing one value, the additional value decreases. 
 
-Here, the r-value is 0.6380002, which is greater than 0. Since this value is between 0.5 and 0.87, it is considered a moderate positive correlation. A table of values (see Figure 3 in the appendix) is attached in the appendix that instructs the degree of correlation (e.g.: weak, moderate, strong, perfect).
+Here, the r-value is 0.4902269, which is greater than 0. Since this value is between 0 and 0.5, it is considered a weak positive correlation. 
 
-Although it is suggested that there is a moderate positive correlation between two variables, to examine its statistical significance, that is, whether the relationship with this sample exists in the population (University of Connecticut, 2009). A critical values table (see Figure 4 in the appendix) is used to examine the data’s statistical significance. Before doing so, a significance level (α) is chosen to be 0.05, meaning at least 95% times the relationship exhibited in this sample also exists in the populations (University of Connecticut, 2009). The degrees of freedom (df) is 5, and using the information in Figure 4, the critical value is: 0.755. If the r-value is bigger than 0.755, the null hypothesis is rejected, and the relationship is statistically significant. However, in this scenario the 𝑟 = 0.6380002 < 0. 755, the null hypothesis is therefore accepted, and it suggests that the relationship is not statistically significant.
+Although it is suggested that there is a weak positive correlation between two variables, we still nedd to examine its statistical significance, that is, whether the relationship with this sample exists in the population (University of Connecticut, 2009). A significance level (α) is chosen to be 0.05, meaning at least 95% times the relationship exhibited in this sample also exists in the populations (University of Connecticut, 2009). Since the p-value is 0.003249, which is smaller than 0.05, the relationship is statistically significant. Therefore, the alternative hypothesis is accepted.
