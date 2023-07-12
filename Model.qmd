@@ -13,16 +13,17 @@ library(rstanarm)
 
 ## Hypothesis 
 
-Null xxx
+Null hypothesis: there is no correlation between patients’ initial treatment ages and the percent improvement in SE (%).
 
-Alternative xxx
+Alternative hypothesis: there is a correlation between patients’ initial treatment ages and the percent improvement in SE (%).
+
+## Calculations
+
+
+Initial SE (D): $$SE_i = SPH_i + 1/2CYL_i$$
+
 
 ## Processed data table
-
-Formula used:
-xxx
-
-Processed data table:
 
 ```{r}
 #| echo: false
@@ -92,9 +93,7 @@ plot(x$Age, x$"SE_improve")
 ```
 
 Model: 
-$$y_i = \alpha*AGE + \beta*G$$
-
-
+$$y_i = \alpha*Age + \beta*Gender$$
 ## Pearson
 
 When considering the relationship between the two factors, Pearson’s correlation coefficient and Spearman's ranking order correlation coefficient are the most common tools. Pearson’s test is best used when there are no outliers in the data (Kent State University, 2021), whereas Spearman’s test is most accurately used when the data has significant outliers. According to Table 5, there are no outliers in this set of data. Therefore, Pearson’s test is chosen.

@@ -125,10 +125,10 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#hypothesis" id="toc-hypothesis" class="nav-link active" data-scroll-target="#hypothesis">Hypothesis</a></li>
+  <li><a href="#calculations" id="toc-calculations" class="nav-link" data-scroll-target="#calculations">Calculations</a></li>
   <li><a href="#processed-data-table" id="toc-processed-data-table" class="nav-link" data-scroll-target="#processed-data-table">Processed data table</a></li>
   <li><a href="#correlation-model" id="toc-correlation-model" class="nav-link" data-scroll-target="#correlation-model">Correlation Model</a></li>
   <li><a href="#pearson" id="toc-pearson" class="nav-link" data-scroll-target="#pearson">Pearson</a></li>
-  <li><a href="#pearson-1" id="toc-pearson-1" class="nav-link" data-scroll-target="#pearson-1">Pearson</a></li>
   </ul>
 </nav>
     </div>
@@ -163,13 +163,15 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <section id="hypothesis" class="level2">
 <h2 class="anchored" data-anchor-id="hypothesis">Hypothesis</h2>
-<p>Null xxx</p>
-<p>Alternative xxx</p>
+<p>Null hypothesis: there is no correlation between patients’ initial treatment ages and the percent improvement in SE (%).</p>
+<p>Alternative hypothesis: there is a correlation between patients’ initial treatment ages and the percent improvement in SE (%).</p>
+</section>
+<section id="calculations" class="level2">
+<h2 class="anchored" data-anchor-id="calculations">Calculations</h2>
+<p>Initial SE (D): <span class="math display">\[SE_i = SPH_i + 1/2CYL_i\]</span></p>
 </section>
 <section id="processed-data-table" class="level2">
 <h2 class="anchored" data-anchor-id="processed-data-table">Processed data table</h2>
-<p>Formula used: xxx</p>
-<p>Processed data table:</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 7 × 2
@@ -220,10 +222,7 @@ F-statistic:  1.16 on 1 and 32 DF,  p-value: 0.2895</code></pre>
 <p><img src="Model_files/figure-html/unnamed-chunk-3-2.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Model: <span class="math display">\[y_i = \alpha*AGE + \beta*G\]</span></p>
-</section>
-<section id="pearson" class="level2">
-<h2 class="anchored" data-anchor-id="pearson">Pearson</h2>
+<p>Model: <span class="math display">\[y_i = \alpha*Age + \beta*Gender\]</span> ## Pearson</p>
 <p>When considering the relationship between the two factors, Pearson’s correlation coefficient and Spearman’s ranking order correlation coefficient are the most common tools. Pearson’s test is best used when there are no outliers in the data (Kent State University, 2021), whereas Spearman’s test is most accurately used when the data has significant outliers. According to Table 5, there are no outliers in this set of data. Therefore, Pearson’s test is chosen.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -251,8 +250,8 @@ F-statistic: 10.12 on 1 and 32 DF,  p-value: 0.003249</code></pre>
 </div>
 </div>
 </section>
-<section id="pearson-1" class="level2">
-<h2 class="anchored" data-anchor-id="pearson-1">Pearson</h2>
+<section id="pearson" class="level2">
+<h2 class="anchored" data-anchor-id="pearson">Pearson</h2>
 <p>When considering the relationship between the two factors, Pearson’s correlation coefficient and Spearman’s ranking order correlation coefficient are the most common tools. Pearson’s test is best used when there are no outliers in the data (Kent State University, 2021), whereas Spearman’s test is most accurately used when the data has significant outliers. According to Table 5, there are no outliers in this set of data. Therefore, Pearson’s test is chosen.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">

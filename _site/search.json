@@ -4,28 +4,28 @@
     "href": "Model.html#hypothesis",
     "title": "Models",
     "section": "Hypothesis",
-    "text": "Hypothesis\nNull xxx\nAlternative xxx"
+    "text": "Hypothesis\nNull hypothesis: there is no correlation between patients’ initial treatment ages and the percent improvement in SE (%).\nAlternative hypothesis: there is a correlation between patients’ initial treatment ages and the percent improvement in SE (%)."
   },
   {
     "objectID": "Model.html#processed-data-table",
     "href": "Model.html#processed-data-table",
     "title": "Models",
     "section": "Processed data table",
-    "text": "Processed data table\nFormula used: xxx\nProcessed data table:\n\n\n# A tibble: 7 × 2\n    Age SE_avg_imp\n  <dbl>      <dbl>\n1     8      0.827\n2     9      0.812\n3    10      0.896\n4    11      0.847\n5    12      0.889\n6    13      0.857\n7    14      0.887"
+    "text": "Processed data table\n\n\n# A tibble: 7 × 2\n    Age SE_avg_imp\n  <dbl>      <dbl>\n1     8      0.827\n2     9      0.812\n3    10      0.896\n4    11      0.847\n5    12      0.889\n6    13      0.857\n7    14      0.887"
   },
   {
     "objectID": "Model.html#correlation-model",
     "href": "Model.html#correlation-model",
     "title": "Models",
     "section": "Correlation Model",
-    "text": "Correlation Model\n\n\n\nCall:\nlm(formula = x$SE_improve ~ x$Age)\n\nResiduals:\n      Min        1Q    Median        3Q       Max \n-0.205855 -0.052370 -0.001803  0.026784  0.137895 \n\nCoefficients:\n            Estimate Std. Error t value Pr(>|t|)    \n(Intercept) 0.793127   0.070447  11.259 1.15e-12 ***\nx$Age       0.006898   0.006404   1.077     0.29    \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.07328 on 32 degrees of freedom\nMultiple R-squared:  0.03498,   Adjusted R-squared:  0.004827 \nF-statistic:  1.16 on 1 and 32 DF,  p-value: 0.2895\n\n\nWarning: `as.tibble()` was deprecated in tibble 2.0.0.\nℹ Please use `as_tibble()` instead.\nℹ The signature and semantics have changed, see `?as_tibble`.\n\n\n\n\n\n\n\n\nModel: \\[y_i = \\alpha*AGE + \\beta*G\\]"
+    "text": "Correlation Model\n\n\n\nCall:\nlm(formula = x$SE_improve ~ x$Age)\n\nResiduals:\n      Min        1Q    Median        3Q       Max \n-0.205855 -0.052370 -0.001803  0.026784  0.137895 \n\nCoefficients:\n            Estimate Std. Error t value Pr(>|t|)    \n(Intercept) 0.793127   0.070447  11.259 1.15e-12 ***\nx$Age       0.006898   0.006404   1.077     0.29    \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.07328 on 32 degrees of freedom\nMultiple R-squared:  0.03498,   Adjusted R-squared:  0.004827 \nF-statistic:  1.16 on 1 and 32 DF,  p-value: 0.2895\n\n\nWarning: `as.tibble()` was deprecated in tibble 2.0.0.\nℹ Please use `as_tibble()` instead.\nℹ The signature and semantics have changed, see `?as_tibble`.\n\n\n\n\n\n\n\n\nModel: \\[y_i = \\alpha*Age + \\beta*Gender\\] ## Pearson\nWhen considering the relationship between the two factors, Pearson’s correlation coefficient and Spearman’s ranking order correlation coefficient are the most common tools. Pearson’s test is best used when there are no outliers in the data (Kent State University, 2021), whereas Spearman’s test is most accurately used when the data has significant outliers. According to Table 5, there are no outliers in this set of data. Therefore, Pearson’s test is chosen.\n\n\n\nCall:\nlm(formula = x$SE_d ~ x$Age)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-2.7036 -0.7824 -0.2197  1.0224  1.9528 \n\nCoefficients:\n            Estimate Std. Error t value Pr(>|t|)   \n(Intercept)  -0.6376     1.1878  -0.537  0.59513   \nx$Age         0.3436     0.1080   3.182  0.00325 **\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 1.236 on 32 degrees of freedom\nMultiple R-squared:  0.2403,    Adjusted R-squared:  0.2166 \nF-statistic: 10.12 on 1 and 32 DF,  p-value: 0.003249"
   },
   {
     "objectID": "Model.html#pearson",
     "href": "Model.html#pearson",
     "title": "Models",
     "section": "Pearson",
-    "text": "Pearson\nWhen considering the relationship between the two factors, Pearson’s correlation coefficient and Spearman’s ranking order correlation coefficient are the most common tools. Pearson’s test is best used when there are no outliers in the data (Kent State University, 2021), whereas Spearman’s test is most accurately used when the data has significant outliers. According to Table 5, there are no outliers in this set of data. Therefore, Pearson’s test is chosen.\n\n\n\nCall:\nlm(formula = x$SE_d ~ x$Age)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-2.7036 -0.7824 -0.2197  1.0224  1.9528 \n\nCoefficients:\n            Estimate Std. Error t value Pr(>|t|)   \n(Intercept)  -0.6376     1.1878  -0.537  0.59513   \nx$Age         0.3436     0.1080   3.182  0.00325 **\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 1.236 on 32 degrees of freedom\nMultiple R-squared:  0.2403,    Adjusted R-squared:  0.2166 \nF-statistic: 10.12 on 1 and 32 DF,  p-value: 0.003249"
+    "text": "Pearson\nWhen considering the relationship between the two factors, Pearson’s correlation coefficient and Spearman’s ranking order correlation coefficient are the most common tools. Pearson’s test is best used when there are no outliers in the data (Kent State University, 2021), whereas Spearman’s test is most accurately used when the data has significant outliers. According to Table 5, there are no outliers in this set of data. Therefore, Pearson’s test is chosen.\n\n\n\n    Pearson's product-moment correlation\n\ndata:  x$Age and x$SE_d\nt = 3.1817, df = 32, p-value = 0.003249\nalternative hypothesis: true correlation is not equal to 0\n95 percent confidence interval:\n 0.1822791 0.7105921\nsample estimates:\n      cor \n0.4902269 \n\n\nIf the coefficient > 0, then there is a positive correlation. Which is, by increasing one value, the other value also increases. If the coefficient < 0, then there is a negative correlation, meaning by increasing one value, the additional value decreases.\nHere, the r-value is 0.4902269, which is greater than 0. Since this value is between 0 and 0.5, it is considered a weak positive correlation.\nAlthough it is suggested that there is a weak positive correlation between two variables, we still nedd to examine its statistical significance, that is, whether the relationship with this sample exists in the population (University of Connecticut, 2009). A significance level (α) is chosen to be 0.05, meaning at least 95% times the relationship exhibited in this sample also exists in the populations (University of Connecticut, 2009). Since the p-value is 0.003249, which is smaller than 0.05, the relationship is statistically significant. Therefore, the alternative hypothesis is accepted."
   },
   {
     "objectID": "Model.html#pearson-1",
@@ -103,5 +103,12 @@
     "title": "Methodology",
     "section": "",
     "text": "Get raw data from NCBI, download spreadsheet by clicking the link in supplementary information (Yin et at., 2019)\nUse the column of age, spherical diopter (SPH) and cylinder diopter (CYL) in the spreadsheet to generate a new raw data table.\nProcess the data to calculate the initial, final and change in SE (D) and the percent improvement of SE (%) for each patient, respectively.\nPlot a graph based on the percent improvement of SE (%) of each patient.\nGenerate a null hypothesis and an alternative hypothesis for justification, then use statistical analysis (modelling and Pearson’s correlation coefficient) to find whether there is a correlation between IV (patients’ initial treatment age) and DV (percent improvement of SE (%)), then evaluate whether the relationship is statistically significant.\nDraw conclusions based on processed data and statistical analysis."
+  },
+  {
+    "objectID": "Model.html#calculations",
+    "href": "Model.html#calculations",
+    "title": "Models",
+    "section": "Calculations",
+    "text": "Calculations\nInitial SE (D): \\[SE_i = SPH_i + 1/2CYL_i\\]"
   }
 ]
